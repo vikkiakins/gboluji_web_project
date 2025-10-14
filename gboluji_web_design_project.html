@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: calibri;
+        }
+
+        body {
+            /* background-color: rgb(205, 228, 243); */
+            background-color: white;
+        }
+        .header {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to right, rgb(2, 35, 253), rgb(0, 0, 112));
+            color: white;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+
+        }
+        .header h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: cambria;
+        }
+        .text {
+            font-size: 26px;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .cont {
+            width: 85%;
+            height: auto;
+            margin: 0 auto;
+        }
+        .box {
+            float: left;
+            width: calc(100% / 3 - 80px);
+            height: 300px;
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            color: black;
+            transition: 0.3s;
+            
+        }
+        .box:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        .clr {
+            clear: both;
+        }
+        .st {
+            font-size: 60px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 70px;
+        }
+        .mt {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .footer {
+            width: 100%;
+            margin-top: 50px;
+            background-color: darkblue;
+            padding: 40px 0;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #quiz {
+            width: 500px;
+            height: auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            margin: 150px auto;
+            padding: 30px 30px;
+        }
+        .h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 40px;
+            /* color: rgb(0, 145, 255); */
+            color: blue;
+            padding-bottom: 10px;
+            border-bottom: 3px solid darkblue;
+        }
+        .que {
+            font-size: 30px;
+            font-weight: bold; 
+            text-align: center;
+
+        }
+        button {
+            background-color: rgb(205, 228, 243);
+            border: none;
+            display: inline-block;
+            width: calc(50% - 20px);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 20px;
+            margin: 0 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btns:hover {
+            background-color: darkblue;
+            color: white;
+        }
+        
+        #options {
+            margin:20px 0;
+            width: 100%;
+            /* background-color: yellow; */
+        }
+        .shift {
+            margin-left: 20px;
+        }
+        #nextButton {
+            margin: 30px auto;
+            margin-bottom: 20px;
+            /* display: block;    */
+        }
+        .block {
+            display: block;
+        }
+        .res {
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .green {
+            color: green;
+
+        }
+        .brown {
+            color: brown;
+
+        }
+        .gray {
+            color: gray;
+        }
+        .hidden {
+            display: none;
+        }
+        .selected {
+            background-color: darkblue;
+            color: white;
+        }
+    </style>
+</head>
+<body id="bodyTag">
+
+<div id="main">
+    <div class="header">
+            <div>
+                <h1>Gboluji Byte Busters Quiz</h1>
+            </div>
+        </div>
+        <div class="cont">
+            <p class="text">
+            Welcome to Gboluji Byte Busters Quiz App. <br><br>Test your Knowledge
+            on some interesting facts about the South Western States of Nigeria.
+            click on any of the states below to start.
+        </p>
+
+        <div class="box" id="oyo">
+            <p class="st">Oyo</p>
+            <p class="mt">Motto: The Pacesetter State</p>
+        </div>
+        <div class="box" id="ondo">
+            <p class="st">Ondo</p>
+            <p class="mt">Motto: The Sunshine State</p>
+        </div>
+        <div class="box" id="osun">
+            <p class="st">Osun</p>
+            <p class="mt">Motto: The Land of Virtue</p>
+        </div>
+        <div class="box" id="ogun">
+            <p class="st">Ogun</p>
+            <p class="mt">Motto: The Gateway State</p>
+        </div>
+        <div class="box" id="ekiti">
+            <p class="st">Ekiti</p>
+            <p class="mt">Motto: The Land of Honour and integrity</p>
+        </div>
+        <div class="box" id="lagos">
+            <p class="st">Lagos</p>
+            <p class="mt">Motto: Center of Excellence</p>
+        </div>
+        <div class="clr"></div>
+        </div>
+        
+    <div class="footer">
+        Proudly Designed by Gboluji Byte Busters Club, Gboluji Anglican Grammar School,
+        Ileoluji, Ondo State. &copy; 2025.
+    </div>
+</div>
+
+    <!-- Quiz HTML Section -->
+<div id="quiz">
+    <div class="">
+        <h2 class="h2">Quiz App</h2>
+        <div id="quizContainer" class="">
+            <p id="question" class="que"></p>
+            <div id="options" class="">
+                <button class="btns"></button>
+                <button class="btns"></button>
+                <button class="btns"></button>
+                <button class="btns"></button>
+            </div>
+        </div>
+        <button id="nextButton" class="btns hidden">Next Question</button>
+        <button id="restart" class="btns hidden">Try Again</button>
+        <p id="result" class="res hidden"></p>
+        <!-- <p id="restart" class="res hidden"></p> -->
+        <p id="score" class="hidden"></p>
+    </div>
+</div>
+
+
+<script>
+    // Questions for Oyo state
+const oyoQuestions = [
+        {
+            question: "What is the capital of Oyo State?",
+            options: ["Ibadan", "Ogbomoso", "Ikirun", "Oyo"],
+            correctAnswer: "Ibadan"
+        },
+        {
+            question: "What is the most common traditional staple food in Oyo State?",
+            options: ["Eba", "Iyan", "Amala", "pupuru"],
+            correctAnswer: "Amala"
+        },
+        {
+            question: "What is the tallest Building in Oyo State?",
+            options: ["NITEL Tower", "Cocoa House", "National Museum", "Champagne Pearl Tower"],
+            correctAnswer: "Cocoa House"
+        },
+        {
+            question: "Who is the current Governor of Oyo State?",
+            options: ["Abiodun Makinde", "Jimoh Ibrahim", "Adekunle Gold", "Akinsipe Akinola"],
+            correctAnswer: "Abiodun Makinde"
+        }
+    ];
+
+    // Questions for Ondo state
+
+    const ondoQuestions = [
+        {
+            question: "Ondo State is a major producer of which tropical crop?",
+            options: ["Rice", "Groundnut", "Cocoa", "Tomatoes"],
+            correctAnswer: "Cocoa"
+        },
+        {
+            question: "Which of these is a significant mineral resource found in Ondo State?",
+            options: ["Gold", "Bitumen", "Diamonds", "iron Ore"],
+            correctAnswer: "Bitumen"
+        },
+        {
+            question: "What is the capital city of Ondo State?",
+            options: ["Okitipupa", "Akure", "Ondo Town", "Owo"],
+            correctAnswer: "Akure"
+        },
+        {
+            question: "What are the primary ethnic groups in Ondo State?",
+            options: ["Yoruba and Ijaw", "Tiv and Fulani", "Igbo and Hausa", "Urhobo and Ijaw"],
+            correctAnswer: "Yoruba and Ijaw"
+        }
+    ];
+
+    // Questions for Osun state
+
+    const osunQuestions = [
+        {
+            question: "Osun State is primarily inhabited by which ethnic group?",
+            options: ["Hausa", "Igbo", "Yoruba", "Ijaw"],
+            correctAnswer: "Yoruba"
+        },
+        {
+            question: "Which famous river is Osun state named after?",
+            options: ["River Nile", "River Osun", "River Benue", "River Niger"],
+            correctAnswer: "River Osun"
+        },
+        {
+            question: "The Osun State coat of arms features two elephants. What do they symbolize?",
+            options: ["Agriculture", "Strength and fortitude", "Justice and equality", "Peace and unity "],
+            correctAnswer: "Strength and fortitude"
+        },
+        {
+            question: "What is the capital city of Osun State?",
+            options: ["Ilesha", "Osogbo", "Ile-Ife", "Ikirun"],
+            correctAnswer: "Osogbo"
+        }
+    ];
+
+    // Questions for Ekiti state
+
+    const ekitiQuestions = [
+        {
+            question: "Which of these agricultural products is a known cash crop in Ekiti State?",
+            options: ["Rice", "Millet", "Cocoa", "Watermelon"],
+            correctAnswer: "Cocoa"
+        },
+        {
+            question: "Which of the following is NOT a neighboring state to Ekiti State?",
+            options: ["Ondo State", "Osun State", "Delta State", "Kogi State"],
+            correctAnswer: "Delta State"
+        },
+        {
+            question: "Ekiti State is home to the highest number of what professional group in Nigeria?",
+            options: ["Lawyers", "Doctors", "Professors", "Engineers"],
+            correctAnswer: "Professors"
+        },
+        {
+            question: "Which sector provides income and employment for more than 75% of the population of Ekiti State?",
+            options: ["Mining", "Manufacturing", "Fishing", "Agriculture"],
+            correctAnswer: "Agriculture"
+        }
+    ];
+
+    // Questions for Lagos state
+
+const lagosQuestions = [
+        {
+            question: "Which body of water borders Lagos to the south?",
+            options: ["ake Chad", "Atlantic Ocean", "River Niger", "River Benue"],
+            correctAnswer: "Atlantic Ocean"
+        },
+        {
+            question: "What is the name of a major traditional festival celebrated in Lagos State?",
+            options: ["Eyo", "Igue", "Egungun", "Durbar"],
+            correctAnswer: "Eyo"
+        },
+        {
+            question: "What form of public transport is commonly used in Lagos?",
+            options: ["Trains", "Subways", "Motobike", "BRT"],
+            correctAnswer: "BRT"
+        },
+        {
+            question: " What is the capital city of Lagos State?",
+            options: ["Lagos Island", "Ikeja", "Yaba", "Agege"],
+            correctAnswer: "Ikeja"
+        }
+    ];
+
+    // Questions for Ogun state
+
+    
+const ogunQuestions = [
+        {
+            question: "Which famous former Nigerian president and military head of state is from Abeokuta, Ogun State",
+            options: ["Olusegun Obasanjo", "Ibrahim Babangida", "Sani Abacha", "Goodluck Jonathan"],
+            correctAnswer: "Olusegun Obasanjo"
+        },
+        {
+            question: "Ogun State shares an international border with which country?",
+            options: ["Cameroon", "Benin Republic", "Togo", "Chad"],
+            correctAnswer: "Benin Republic"
+        },
+        {
+            question: "Which prominent historical site in Abeokuta is a fortress and a spiritual sanctuary for the Egba people?",
+            options: ["Olumo Rock", "Idanre Hills", "Zuma Rock", "Erinle Waterfall"],
+            correctAnswer: "Olumo Rock"
+        },
+        {
+            question: "Which important Nigerian river flows through Ogun State?",
+            options: ["River Niger", "River Benue", "Ogun River", "Atlantic Ocean"],
+            correctAnswer: "Ogun River"
+        }
+    ];
+
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let qq = oyoQuestions;
+    const bodyTag = document.getElementById('bodyTag');
+    const main = document.getElementById('main');
+    const quiz = document.getElementById('quiz');
+    const questionElement = document.getElementById('question');
+    const optionsContainer = document.getElementById('options');
+    const nextButton = document.getElementById('nextButton');
+    const resultElement = document.getElementById('result');
+    const scoreElement = document.getElementById('score');
+    const restartBtn = document.getElementById('restart');
+    const lagos = document.getElementById('lagos');
+    const osun = document.getElementById('osun');
+    const oyo = document.getElementById('oyo');
+    const ondo = document.getElementById('ondo');
+    const ogun = document.getElementById('ogun');
+    const ekiti = document.getElementById('ekiti');
+
+    quiz.style.display = "none";
+    
+    lagos.addEventListener('click', ()=> {
+        qq = lagosQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+        
+    })
+    osun.addEventListener('click', ()=> {
+        qq = osunQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+    })
+    ekiti.addEventListener('click', ()=> {
+        qq = ekitiQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+    })
+    oyo.addEventListener('click', ()=> {
+        qq = oyoQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+    })
+    ogun.addEventListener('click', ()=> {
+        qq = ogunQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+    })
+    ondo.addEventListener('click', ()=> {
+        qq = ondoQuestions;
+        quiz.style.display = "block";
+        main.style.display = "none";
+        bodyTag.style.background = "rgb(205, 228, 243)";
+        loadQuestion();
+    })
+
+
+    function loadQuestion(){
+        questions =  qq
+        const currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+        optionsContainer.innerHTML = '';
+
+        currentQuestion.options.forEach(option => {
+            const button = document.createElement('button');
+            button.textContent = option;
+            button.classList.add('btns', 'option');
+            button.addEventListener('click', () => handleAnswer(option, button));
+            optionsContainer.appendChild(button);
+        });
+        nextButton.classList.add('hidden');
+        nextButton.classList.remove('block');
+        resultElement.classList.add('hidden');
+
+        restartBtn.addEventListener("click", () => {
+        window.location.reload();
+    })
+    };
+
+    function handleAnswer(selectedAnswer, selectedButton){
+        const currentQuestion = questions[currentQuestionIndex];
+        const allOptions = document.querySelectorAll('.option');
+        allOptions.forEach(option => {
+            option.disabled = true;
+            option.classList.remove('btns');
+            option.classList.add('gray');
+        });
+
+        selectedButton.classList.remove('btns');
+        selectedButton.classList.add('selected');
+        if(selectedAnswer === currentQuestion.correctAnswer){
+            resultElement.textContent = 'Correct!';
+            resultElement.classList.remove('brown');
+            resultElement.classList.add('green');
+            score++;
+        } else{
+            resultElement.textContent = `Wrong! The Correct Answer is:  ${currentQuestion.correctAnswer}`;
+            resultElement.classList.remove('green');
+            resultElement.classList.add('brown');
+        }
+        resultElement.classList.remove('hidden');
+        nextButton.classList.remove('hidden');
+        nextButton.classList.add('block');
+    };
+    nextButton.addEventListener('click', () => {
+        currentQuestionIndex++;
+        if(currentQuestionIndex < questions.length){
+            loadQuestion();
+        } else{
+            showFinalScore()
+        }
+    });
+    function showFinalScore(){
+        questionElement.textContent = `Quiz Finished! Your final score is ${score} / ${questions.length}.`;
+        optionsContainer.innerHTML = '';
+        resultElement.classList.add('hidden');
+        nextButton.classList.add('hidden');
+        restartBtn.classList.remove('hidden');
+        restartBtn.classList.add('block');
+        restartBtn.style.margin = "50px auto 20px auto"
+
+    };
+    loadQuestion();
+
+    
+</script>
+
+</body>
+</html>
